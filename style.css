@@ -70,3 +70,14 @@ h3 {
     opacity: 0;
   }
 }
+
+#volume {
+  position: absolute;
+  right: 0;
+  bottom: 1rem;
+  transform: rotate(-90deg) translateX(50%);
+}
+
+::-moz-range-progress {
+  background: white;
+}

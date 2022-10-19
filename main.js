@@ -19,6 +19,7 @@ const feedback = document.querySelector('.feedback')
 const originalBoxSize = 3;
 const boxHeight = 0.5;
 const startColor = Math.round(Math.random() * (720 - 360) + 360);
+const volumeRange = document.querySelector('#volume')
 
 // Audio
 const sounds = {
@@ -30,9 +31,18 @@ const sounds = {
 for (const key in sounds) {
   if (Object.hasOwnProperty.call(sounds, key)) {
     const audio = sounds[key];
-    audio.volume = 0.5
+    audio.volume = 0.3
   }
 }
+
+volumeRange.addEventListener('change', () => {
+  for (const key in sounds) {
+    if (Object.hasOwnProperty.call(sounds, key)) {
+      const audio = sounds[key];
+      audio.volume = volumeRange.value
+    }
+  }
+})
 
 document.body.style.backgroundImage = 
   `linear-gradient(hsl(${startColor} , 100%, 25%) 0%, hsl(${startColor} , 100%, 75%) 100%)`;
